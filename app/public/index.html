@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wiz Exercise Todo App</title>
+<style>
+  body { font-family: sans-serif; max-width: 500px; margin: 40px auto; }
+  li { margin: 6px 0; }
+  li.done { text-decoration: line-through; color: #888; }
+</style>
+</head>
+<body>
+<h1>Wiz Exercise Todo App</h1>
+<input id="text" placeholder="New todo..." />
+<button id="add">Add</button>
+<ul id="list"></ul>
+
+<script>
+async function load() {
+  const res = await fetch('/api/todos');
+  const todos = await res.json();
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+  todos.forEach(t => {
+    const li = document.createElement('li');
+    li.textContent = t.text;
+    if (t.done) li.classList.add('done');
+    li.onclick = async () => {
+      await fetch(`/api/todos/${t._id}/toggle`, { method: 'PUT' });
+      load();
+    };
+    list.appendChild(li);
+  });
+}
+
+document.getElementById('add').onclick = async () => {
+  const text = document.getElementById('text').value;
+  if (!text) return;
+  await fetch('/api/todos', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text })
+  });
+  document.getElementById('text').value = '';
+  load();
+};
+
+load();
+</script>
+</body>
+</html>

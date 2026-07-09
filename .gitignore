@@ -1,0 +1,8 @@
+*.tfvars
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+iam_policy.json
+node_modules/
+*.pem

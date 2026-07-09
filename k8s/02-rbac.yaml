@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: todo-app-sa
+  namespace: wiz-exercise
+---
+# INTENTIONAL MISCONFIGURATION: binds the app's ServiceAccount to the
+# built-in cluster-admin ClusterRole, giving the pod full cluster privileges.
+# Document this clearly for the panel — this is a classic "container escape
+# -> cluster takeover" attack path that a CSPM tool should flag.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: todo-app-cluster-admin-binding
+subjects:
+  - kind: ServiceAccount
+    name: todo-app-sa
+    namespace: wiz-exercise
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io

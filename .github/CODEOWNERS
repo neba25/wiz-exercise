@@ -1,0 +1,4 @@
+# Require review on infrastructure and pipeline changes
+/terraform/          @neba25
+/.github/workflows/  @neba25
+/k8s/                @neba25
