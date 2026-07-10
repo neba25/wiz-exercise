@@ -13,7 +13,7 @@ variable "project_name" {
 variable "your_name" {
   description = "Your name — written into wizexercise.txt inside the container image"
   type        = string
-  default     = "YOUR NAME HERE"
+  default     = "Kenneth Neba"
 }
 
 variable "vpc_cidr" {
@@ -36,7 +36,7 @@ variable "private_subnet_cidrs" {
 # to today, not relative to when this file was written).
 variable "mongo_instance_type" {
   type    = string
-  default = "t3.medium"
+  default = "t3.micro"
 }
 
 variable "mongo_admin_password" {
@@ -52,5 +52,5 @@ variable "key_pair_name" {
 
 variable "eks_cluster_version" {
   type    = string
-  default = "1.29"
+  default = "1.33"
 }

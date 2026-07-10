@@ -4,17 +4,26 @@
 # Example below pins a specific old Ubuntu 20.04 AMI in us-east-1 —
 # replace with a verified old AMI ID for your target region/date.
 ############################################
+#data "aws_ami" "old_ubuntu" {
+#  most_recent = true
+#  owners      = ["278635088475"] # Canonical
+
+#  filter {
+#    name   = "name"
+ #   values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20251111"]
+  #}
+#  filter {
+#    name   = "virtualization-type"
+#    values = ["x86_64"]
+#  }
+#}
+
 data "aws_ami" "old_ubuntu" {
-  most_recent = false
-  owners      = ["099720109477"] # Canonical
+  owners = ["099720109477"] # Canonical
 
   filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
+    name   = "image-id"
+    values = ["ami-00b13f11600160c10"]
   }
 }
 

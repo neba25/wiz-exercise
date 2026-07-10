@@ -5,6 +5,8 @@ module "eks" {
   cluster_name    = "${var.project_name}-eks"
   cluster_version = var.eks_cluster_version
 
+  enable_cluster_creator_admin_permissions = true
+
   vpc_id     = aws_vpc.main.id
   subnet_ids = aws_subnet.private[*].id
 
@@ -18,7 +20,7 @@ module "eks" {
       min_size       = 2
       max_size       = 4
       desired_size   = 2
-      instance_types = ["t3.medium"]
+      instance_types = ["t3.micro"]
       subnet_ids     = aws_subnet.private[*].id
     }
   }

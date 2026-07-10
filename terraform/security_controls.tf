@@ -128,7 +128,7 @@ resource "aws_config_remediation_configuration" "restricted_ssh_remediation" {
 ############################################
 # GuardDuty — DETECTIVE control (recommended)
 ############################################
-resource "aws_guardduty_detector" "main" {
-  enable                       = true
-  finding_publishing_frequency = "FIFTEEN_MINUTES"
-}
+#resource "aws_guardduty_detector" "main" {
+#  enable                       = true
+#  finding_publishing_frequency = "FIFTEEN_MINUTES"
+#}
