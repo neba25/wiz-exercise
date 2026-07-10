@@ -58,7 +58,7 @@ resource "aws_config_configuration_recorder_status" "main" {
 # Detect security groups open to 0.0.0.0/0 on port 22, and auto-remediate
 # by revoking the rule — UNLESS the SG carries the exemption tag used by
 # the Mongo VM's SG in this exercise (mongo_sg is intentionally excluded so
-# the required weakness remains in place for the panel demo).
+# the required weakness remains in place).
 ############################################
 resource "aws_config_config_rule" "restricted_ssh" {
   name = "${var.project_name}-restricted-ssh"
