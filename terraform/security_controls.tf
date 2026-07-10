@@ -120,7 +120,7 @@ resource "aws_config_remediation_configuration" "restricted_ssh_remediation" {
     static_value = aws_iam_role.config_remediation_role.arn
   }
 
-  automatic                 = true
+  automatic                  = true
   maximum_automatic_attempts = 3
   retry_attempt_seconds      = 60
 }

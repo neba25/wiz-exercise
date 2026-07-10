@@ -10,8 +10,8 @@
 
 #  filter {
 #    name   = "name"
- #   values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20251111"]
-  #}
+#   values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-20251111"]
+#}
 #  filter {
 #    name   = "virtualization-type"
 #    values = ["x86_64"]
@@ -60,7 +60,7 @@ resource "aws_security_group" "mongo_sg" {
   }
 
   tags = {
-    Name                                  = "${var.project_name}-mongo-sg"
+    Name                                 = "${var.project_name}-mongo-sg"
     "wiz-exercise-intentional-exception" = "true"
   }
 }
@@ -113,7 +113,7 @@ resource "aws_instance" "mongo_vm" {
   user_data = templatefile("${path.module}/../scripts/mongo_userdata.sh.tpl", {
     mongo_admin_password = var.mongo_admin_password
     backup_bucket        = aws_s3_bucket.mongo_backups.bucket
-    aws_region            = var.aws_region
+    aws_region           = var.aws_region
   })
 
   tags = {
