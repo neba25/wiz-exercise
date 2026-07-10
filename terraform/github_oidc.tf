@@ -39,7 +39,7 @@ resource "aws_iam_role" "github_actions" {
 }
 
 # Scope this down for a real production pipeline; broad here to keep the
-# exercise's build/deploy steps (Terraform, ECR, EKS) simple to demo.
+# exercise's build/deploy steps (Terraform, ECR, EKS).
 resource "aws_iam_role_policy_attachment" "github_actions_admin" {
   role       = aws_iam_role.github_actions.name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
