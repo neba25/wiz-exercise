@@ -6,3 +6,9 @@
 iam_policy.json
 node_modules/
 *.pem
+# Credentials and keys
+.env
+.env.*
+*.pem
+*.key
+kubeconfig
