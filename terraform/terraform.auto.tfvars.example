@@ -1,8 +1,0 @@
-# Copy this to terraform.auto.tfvars locally and fill in real values.
-# terraform.auto.tfvars is gitignored — never commit real secrets.
-
-aws_region           = "us-east-1"
-your_name            = "Your Full Name"
-key_pair_name        = "wiz-exercise-key"
-mongo_admin_password = "REPLACE-WITH-A-STRONG-PASSWORD"
-github_org_repo      = "your-github-username/wiz-exercise"

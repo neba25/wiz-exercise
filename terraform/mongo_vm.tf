@@ -2,7 +2,7 @@
 # INTENTIONALLY OLD AMI
 # Pick a base image that is 1+ years old relative to build date.
 # Example below pins a specific old Ubuntu 20.04 AMI in us-east-1 —
-# replace with a verified old AMI ID for your target region/date.
+# replace with a verified old AMI ID.
 ############################################
 #data "aws_ami" "old_ubuntu" {
 #  most_recent = true
