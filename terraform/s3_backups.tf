@@ -10,7 +10,7 @@ resource "aws_s3_bucket" "mongo_backups" {
   }
 }
 
-# Disable all public-access blocking - this is the intentional weakness
+# Disable all public-access blocking - this is the intentional weakness added
 resource "aws_s3_bucket_public_access_block" "mongo_backups" {
   bucket                  = aws_s3_bucket.mongo_backups.id
   block_public_acls       = false
