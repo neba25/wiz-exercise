@@ -19,7 +19,7 @@ spec:
       containers:
         - name: todo-app
           # Replace with your ECR repo URL output from Terraform
-          image: <ECR_REPO_URL>:latest
+          image: 278635088475.dkr.ecr.us-east-1.amazonaws.com/wiz-exercise-app:latest
           ports:
             - containerPort: 3000
           env:
